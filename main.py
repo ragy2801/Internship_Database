@@ -178,33 +178,33 @@ def main():
 
     inputVar = input('Enter (1) to Search Internship, (2) to insert Internship, and (3) to exit:')
 
-    while inputVar != 3:
-
-        if inputVar == '2':
-            with conn:
-                internshipID = input('Enter internship ID: ')
-                internshipTitle = input('Enter internship Title: ')
-                internshipDesc = input('Enter Description for internship: ')
-                internshipSalary = input('Enter Salary: ')
-                internshipTime = input ('Full-time or Part-time: ')
-                intershipSite = input ('On-site or Remote: ')
-                internshipReq = input ('Requirements for Internship:')
-
-                internship = (internshipID, internshipTitle, internshipDesc, internshipSalary, internshipTime,intershipSite, internshipReq)
-                internship_id = create_internship(conn, internship)
 
 
-        if inputVar == '1':
-            window = sg.Window('Internship Database', layout)
+    if inputVar == '2':
+         with conn:
+            internshipID = input('Enter internship ID: ')
+            internshipTitle = input('Enter internship Title: ')
+            internshipDesc = input('Enter Description for internship: ')
+            internshipSalary = input('Enter Salary: ')
+            internshipTime = input ('Full-time or Part-time: ')
+            intershipSite = input ('On-site or Remote: ')
+            internshipReq = input ('Requirements for Internship:')
 
-            while True:
-                event, values = window.read()
-                if event == sg.WIN_CLOSED:
-                    break
-                if event == 'SEARCH':
-                    display_internship(conn, values['-Internship-'], window)
+            internship = (internshipID, internshipTitle, internshipDesc, internshipSalary, internshipTime,intershipSite, internshipReq)
+            internship_id = create_internship(conn, internship)
 
-            window.close()
+
+    if inputVar == '1':
+        window = sg.Window('Internship Database', layout)
+
+        while True:
+            event, values = window.read()
+            if event == sg.WIN_CLOSED:
+                break
+            if event == 'SEARCH':
+                display_internship(conn, values['-Internship-'], window)
+
+        window.close()
 
 
 if __name__ == '__main__':
