@@ -1,3 +1,12 @@
+"""
+Program:    Internship Database
+Creators:   Ragy Costa de jesus, Kaden Carr, Ben Heins
+Course:     Intro to Data Engineering
+Date:       Mat 5th, 2022
+Desc:       Internship Database to store and find internship for students
+"""
+
+
 import sqlite3
 from sqlite3 import Error
 import PySimpleGUI as sg
